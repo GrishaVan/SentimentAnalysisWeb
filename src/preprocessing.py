@@ -13,7 +13,6 @@ def process_text(text):
     return tokens
 
 
-
 if __name__ == '__main__':
     text = "<p>This is a long, text. That has everything ! Stop words such as the and not is. Lets see if I can tokenize this. ALso lammenizing words such as running </p>"
     print(process_text(text))
