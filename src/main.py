@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, jsonify
 from embedding import *
 from neural import *
 import tensorflow as tf
+import os
 
 app = Flask(__name__, template_folder="templates", static_folder='./styles')
 
@@ -33,3 +34,7 @@ def feedback():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+
+    #Connect to database url
+    #postgres://reviews_kzwu_user:u3SDEHpzOsBazsxhzvmsy1uAiu6gOcfJ@dpg-cnfpmv6g1b2c73bb67n0-a.frankfurt-postgres.render.com/reviews_kzwu
