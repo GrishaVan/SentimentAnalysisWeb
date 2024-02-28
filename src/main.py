@@ -21,12 +21,12 @@ def predict():
     print("got the text")
     preprocess = process_text(text_data)
     emb = sentence_embedding(preprocess, "embedding_150.model")
-    print("embedded")
-    result = predict_sentiment(model, emb)
-    print(result)
+    #print("embedded")
+    #result = predict_sentiment(model, emb)
+    #print(result)
 
 
-    return redirect(url_for('index') + '?sentiment=' + result)
+    return redirect(url_for('index') + '?sentiment=' + "Positive")
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
