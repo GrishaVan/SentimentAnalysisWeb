@@ -18,8 +18,10 @@ def index():
 def predict():
 
     text_data = request.form['inputText']
+    print("got the text")
     preprocess = process_text(text_data)
     emb = sentence_embedding(preprocess, "embedding_150.model")
+    print("embedded")
     result = predict_sentiment(model, emb)
     print(result)
 
