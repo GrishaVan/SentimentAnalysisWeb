@@ -4,6 +4,8 @@ from neural import *
 import tensorflow as tf
 import os
 
+model = tf.keras.models.load_model("./Models/CNN/cnn_150")
+
 app = Flask(__name__, template_folder="templates", static_folder='./styles')
 
 @app.route('/', methods=['GET'])
@@ -14,7 +16,6 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    model = tf.keras.models.load_model("./Models/CNN/cnn_150")
 
     text_data = request.form['inputText']
     preprocess = process_text(text_data)
