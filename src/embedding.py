@@ -5,7 +5,7 @@ import numpy as np
 from preprocessing import process_text
 
 def sentence_embedding(sentence, model_name, max_length=266):
-    model = Word2Vec.load(f"../Models/Embedding/{model_name}")
+    model = Word2Vec.load(f"./Models/Embedding/{model_name}")
     # Create an empty matrix with fixed max_length and vector_size
     sentence_matrix = np.zeros((max_length, model.vector_size))
     
