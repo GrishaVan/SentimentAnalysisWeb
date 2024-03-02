@@ -12,28 +12,19 @@
 <body>
 
     <form action="{{ url_for('predict') }}" method="POST">
-        <div class="form-group">
-            <textarea id="inputText" name="inputText" class="form-control text-center" placeholder="Enter your text here..."></textarea>
-        </div>
         {% if sentiment %}
+        <h2 class="text-center mt-4" style="color: grey">
+            The system predicts {{ sentiment.capitalize() }} sentiment.
+        </h2>
         <div class="d-flex justify-content-center mt-3">
             <!-- Display feedback buttons instead of the predict button -->
             <button formaction="{{ url_for('feedback') }}" name="feedback" value="correct" class="btn btn-success btn-lg mr-2">Prediction Correct</button>
             <button formaction="{{ url_for('feedback') }}" name="feedback" value="wrong" class="btn btn-danger btn-lg ml-2">Prediction Wrong</button>
         </div>
-            <div id="resultMessage" class="alert mt-3 {{ 'alert-success' if sentiment == 'Positive' else 'alert-danger' }}">
-                The system predicts {{ sentiment }} sentiment.
-            </div>
-            <script>
-                // Change the background color based on sentiment
-                document.body.style.backgroundColor = "{{ 'green' if sentiment == 'Positive' else 'red' }}";
-        
-                // Change the background color back to the original after 1 second
-                setTimeout(() => {
-                    document.body.style.backgroundColor = ''; // Reset to default color
-                }, 1000);
-            </script>
         {% else %}
+        <div class="form-group">
+            <textarea id="inputText" name="inputText" class="form-control text-center" placeholder="Enter your text here..."></textarea>
+        </div>
         <div class="d-flex justify-content-center mt-3">
             <!-- Show predict button if no sentiment is predicted yet -->
             <button type="submit" id="predictButton" class="btn btn-primary btn-lg">Predict</button>

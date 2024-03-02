@@ -5,6 +5,7 @@ from neural import *
 import tensorflow as tf
 import os
 from flask_cors import CORS
+from firebase import *
 
 model = tf.keras.models.load_model("./Models/CNN/cnn_150")
 
@@ -29,20 +30,32 @@ def predict():
     print("got the text")
     preprocess = process_text(text_data)
     emb = sentence_embedding(preprocess, "embedding_150.model")
-    #print("embedded")
     result = predict_sentiment(model, emb)
-    #print(result)
 
+    id = get_last_entry_id()
+
+    if id is None:
+        id = 1
+    else:
+        id += 1
+    rev = Review(id, text_data, result)
+    insert_text(rev)
 
     return redirect(url_for('index') + '?sentiment=' + result)
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
     feedback = request.form['feedback']
-    print(f"Feedback received: {feedback}")
+    id = get_last_entry_id()
+    if feedback != "correct":
+        if read_sentiment(id) == "Positive":
+            update_value(id, "Negative")
+        else:
+            update_value(id, "Negative")
 
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
+    permission()
     app.run()
     

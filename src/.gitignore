@@ -1,0 +1,17 @@
+# Google App Engine files
+app.yaml
+
+# Environment variables
+.env
+
+# Firebase private key
+arctic-app-415800-firebase-adminsdk-j43fz-8ca974f717.json
+
+# Additionally, common directories and files to ignore
+# Compiled python files
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
