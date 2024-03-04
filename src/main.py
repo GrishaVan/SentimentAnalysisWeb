@@ -22,7 +22,7 @@ app.config["DEBUG"] = os.environ.get("FLASK_DEBUG")
 def index():
     # Get sentiment from query string if available
     sentiment = request.args.get('sentiment', '')
-    return render_template('cover.html', sentiment=sentiment)
+    return render_template('index.html', sentiment=sentiment)
 
 @app.route('/predict', methods=['POST'])
 def predict():

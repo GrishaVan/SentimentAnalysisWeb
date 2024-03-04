@@ -4,5 +4,4 @@ README.md
 *.pyo
 *.pyd
 __pycache__
-arctic-app-415800-firebase-adminsdk-j43fz-8ca974f717.json
 .pytest_cache
