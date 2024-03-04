@@ -2,7 +2,8 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-from google.cloud import secretmanager
+import os
+
 
 class Review:
     def __init__(self, id, text, sentiment):
@@ -10,23 +11,13 @@ class Review:
         self.text = text
         self.sentiment = sentiment
 
-def access_secret_version(project_id, secret_id, version_id="latest"):
-    client = secretmanager.SecretManagerServiceClient()
-    name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
-    response = client.access_secret_version(request={"name": name})
-    return response.payload.data.decode("UTF-8")
 
 def permission():
-    project_id = "836401169728"
-    secret_id = "FIREBASECRED"
+    firebase_cred_content = os.environ.get('CRED')
+    firebase_cred = json.loads(firebase_cred_content)
     
-    # Fetch the secret
-    secret_content = access_secret_version(project_id, secret_id)
-    
-    # Parse the JSON string to a dictionary
-    cred_dict = json.loads(secret_content)
 
-    cred = credentials.Certificate(cred_dict)
+    cred = credentials.Certificate(firebase_cred)
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://arctic-app-415800-default-rtdb.europe-west1.firebasedatabase.app/'
     })
