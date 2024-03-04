@@ -10,6 +10,7 @@ from firebase import *
 model = tf.keras.models.load_model("./Models/CNN/cnn_150")
 
 load_dotenv()
+permission()
 
 app = Flask(__name__, template_folder="templates", static_folder='./styles')
 CORS(app)
@@ -21,10 +22,11 @@ app.config["DEBUG"] = os.environ.get("FLASK_DEBUG")
 def index():
     # Get sentiment from query string if available
     sentiment = request.args.get('sentiment', '')
-    return render_template('index.html', sentiment=sentiment)
+    return render_template('cover.html', sentiment=sentiment)
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    
 
     text_data = request.form['inputText']
     print("got the text")
@@ -55,7 +57,9 @@ def feedback():
 
     return redirect(url_for('index'))
 
+
+
 if __name__ == '__main__':
-    permission()
+  
     app.run()
     

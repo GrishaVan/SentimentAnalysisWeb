@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Template</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #343a40; /* Dark background */
+            color: #ffffff; /* White text color */
+            margin: 200px;
+            padding-top: 56px; /* Padding to ensure content isn't hidden behind the navbar */
+        }
+        .cover-container {
+            max-width: 42em;
+        }
+        .navbar {
+            background-color: rgba(52, 58, 64, 0.8); /* Dark background with some opacity */
+        }
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff; /* White text color */
+        }
+        .nav-link:hover {
+            color: #f8f9fa; /* Slightly lighter color on hover */
+        }
+        .masthead-brand {
+            font-weight: bold;
+        }
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: calc(100vh - 56px); /* Full height minus navbar height */
+            text-align: center;
+        }
+        .cover-heading {
+            font-size: 3.5rem; /* Larger font size for the cover heading */
+            font-weight: bold;
+            margin-bottom: 0.5rem; /* Spacing between heading and lead text */
+        }
+        .lead {
+            font-size: 1.25rem; /* Adjust the font size as necessary */
+            margin-bottom: 2rem; /* Spacing between lead text and button */
+        }
+        .btn-cover {
+            background-color: #17a2b8; /* Bootstrap's info button color for the "Learn more" button */
+            border: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cover</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="cover d-flex align-items-center h-100">
+        <div class="container">
+            <h1 class="cover-heading">Cover your page.</h1>
+            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">
+                <a href="#" class="btn btn-lg btn-cover">Learn more</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
