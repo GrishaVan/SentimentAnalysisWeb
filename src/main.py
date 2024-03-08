@@ -59,7 +59,7 @@ def feedback():
         else:
             update_value(id, "Negative")
 
-    return redirect(url_for('index'))
+    return redirect(url_for('affectobot'))
 
 
 
