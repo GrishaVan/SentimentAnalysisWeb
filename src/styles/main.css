@@ -2,17 +2,21 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #343a40; 
-    color: #ffffff; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #f7f7f7; /* Light grey background */
+    color: #333; /* Dark grey text color */
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #2c3e50 0%, #f8f9fa 100%);
 }
 .form-group {
     width: 800px;
     height: 400px;
     max-width: 960px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
 }
 #inputText {
     width: 100%;

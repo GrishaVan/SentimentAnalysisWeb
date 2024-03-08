@@ -3,93 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cover Template</title>
+    <title>AffectoBot</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #343a40; /* Dark background */
-            color: #ffffff; /* White text color */
-            margin: 200px;
-            padding-top: 56px; /* Padding to ensure content isn't hidden behind the navbar */
-        }
-        .cover-container {
-            max-width: 42em;
-        }
-        .navbar {
-            background-color: rgba(52, 58, 64, 0.8); /* Dark background with some opacity */
-        }
-        .navbar-brand,
-        .nav-link {
-            color: #ffffff; /* White text color */
-        }
-        .nav-link:hover {
-            color: #f8f9fa; /* Slightly lighter color on hover */
-        }
-        .masthead-brand {
-            font-weight: bold;
-        }
-        .cover {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center vertically */
-            align-items: center; /* Center horizontally */
-            height: calc(100vh - 56px); /* Full height minus navbar height */
-            text-align: center;
-        }
-        .cover-heading {
-            font-size: 3.5rem; /* Larger font size for the cover heading */
-            font-weight: bold;
-            margin-bottom: 0.5rem; /* Spacing between heading and lead text */
-        }
-        .lead {
-            font-size: 1.25rem; /* Adjust the font size as necessary */
-            margin-bottom: 2rem; /* Spacing between lead text and button */
-        }
-        .btn-cover {
-            background-color: #17a2b8; /* Bootstrap's info button color for the "Learn more" button */
-            border: none;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cover.css') }}">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Cover</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AffectoBot</a>
+            <!-- Spacer div to push all nav items to the right -->
+            <div class="navbar-spacer"></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto"> <!-- ml-auto will align the nav items to the right -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="{{ url_for('affectobot') }}">AffectoBot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">Train Bot</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav> 
+    </nav>
+    
 
-    <div class="cover d-flex align-items-center h-100">
+    <div class="cover-container text-center bg-secondary bg-gradient">
         <div class="container">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-cover">Learn more</a>
-            </p>
+            <h1>Welcome to the AffectoBot</h1>
+            <p class="lead">Understanding You, Word by Word</p>
+            <a href="{{ url_for('affectobot') }}" class="btn btn-lg try-button btn-dark btn-gradient" role="button">Try it out</a>
         </div>
     </div>
 
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Card example -->
+            <div class="col-md-4">
+                <div class="card bg-light bg-gradient">
+                    <img src="{{ url_for('static', filename='prediction.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Predic Sentiment</h5>
+                        <p class="card-text">Step into the cinematic world of movie reviews with AffectoBot. Our AI wizard is primed to unravel the sentiments hidden within your words. Share your thoughts on the latest films and let AffectoBot analyze the emotions behind your critiques. Whether it’s a blockbuster hit or an indie gem, type in your review and discover the underlying tone. Ready to see what your reviews reveal? Give AffectoBot a try!</p>
+                        <a href="{{ url_for('affectobot') }}" class="btn btn-dark btn-gradient">Analyze My Review</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for additional cards -->
+            <div class="col-md-4">
+                <div class="card bg-light bg-gradient">
+                    <img src="{{ url_for('static', filename='training.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Training</h5>
+                        <p class="card-text">Join forces with our friendly robot in enhancing the intelligence of neural networks. As the developer, your inputs are crucial in teaching our AI to be more accurate, more intuitive. With each data point you contribute, our model learns, adapts, and grows stronger. Your expertise could be the key to the next breakthrough in AI learning. Help us refine the future of smart technology.</p>
+                        <a href="#" class="btn btn-dark btn-gradient">Contribute to Improvement</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light bg-gradient">
+                    <img src="{{ url_for('static', filename='dis.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Dissertation</h5>
+                        <p class="card-text">Explore the cornerstone project of our technology – the dissertation. Peek into the comprehensive journey undertaken to fulfill my mission: to create an AI that understands us better than we understand ourselves. From conceptual frameworks to the final product, discover the dedication and innovation behind our AI’s creation. Take a moment to delve into our research and share in our quest for progress.</p>
+                        <a href="#" class="btn btn-dark btn-gradient">Discover the Journey</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
 </body>
 </html>

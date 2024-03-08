@@ -18,8 +18,13 @@ CORS(app)
 
 app.config["DEBUG"] = os.environ.get("FLASK_DEBUG")
 
-@app.route('/', methods=['GET'])
+@app.route('/home', methods=['GET'])
 def index():
+    
+    return render_template('cover.html')
+
+@app.route('/bot', methods=['GET'])
+def affectobot():
     # Get sentiment from query string if available
     sentiment = request.args.get('sentiment', '')
     return render_template('index.html', sentiment=sentiment)
