@@ -18,9 +18,8 @@ CORS(app)
 
 app.config["DEBUG"] = os.environ.get("FLASK_DEBUG")
 
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
-    
     return render_template('cover.html')
 
 @app.route('/bot', methods=['GET'])
@@ -48,7 +47,7 @@ def predict():
     rev = Review(id, text_data, result)
     insert_text(rev)
 
-    return redirect(url_for('index') + '?sentiment=' + result)
+    return redirect(url_for('affectobot') + '?sentiment=' + result)
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
