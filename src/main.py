@@ -7,6 +7,7 @@ import os
 from flask_cors import CORS
 from firebase import *
 import random
+import re
 
 model = tf.keras.models.load_model("./Models/CNN/cnn_150")
 
@@ -77,6 +78,9 @@ def train():
     random_review_id = random.choice(review_ids)
     random_rev = review[random_review_id]
     random_rev['id'] = random_review_id
+    text = random_rev["review"]
+    clean = re.compile('<.*?>') 
+    random_rev["review"] = re.sub(clean, '', text)
 
     return render_template('train.html', review=random_rev)
 
