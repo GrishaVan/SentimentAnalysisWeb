@@ -32,7 +32,7 @@ def index():
         return response
 
     # Show ToS modal only if the 'accept_tos' cookie is not set to 'yes'
-    show_tos_modal = accept_tos == 'yes'
+    show_tos_modal = accept_tos != 'yes'
     return render_template('cover.html', show_tos_modal=show_tos_modal)
 
 @app.route('/bot', methods=['GET'])
