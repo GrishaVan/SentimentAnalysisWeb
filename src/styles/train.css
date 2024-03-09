@@ -1,0 +1,35 @@
+.main-container {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, #2c3e50 0%, #f8f9fa 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px; /* Adjust the padding to account for fixed navbar */
+}
+.navbar {
+    background-color: #555;
+}
+.navbar-brand, .nav-link {
+    color: #f7f7f7;
+}
+.nav-link:hover {
+    color: #ddd;
+}
+.review-container {
+    width: 90%;
+    max-width: 960px;
+    margin: 20px auto; /* Add some margin to the top and bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding: 20px;
+    background: #fff;
+    position: relative; /* Needed for absolute positioning of the buttons */
+}
+.btn-group button {
+    margin: 0 10px; /* Space out buttons */
+}

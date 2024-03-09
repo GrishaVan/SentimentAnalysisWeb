@@ -11,10 +11,17 @@ class Review:
         self.text = text
         self.sentiment = sentiment
 
+class TMD:
+    def __init__(self, id, title, text):
+        self.id = id
+        self.title = title
+        self.text = text
+
 
 def permission():
     firebase_cred_content = os.environ.get('CRED')
     firebase_cred = json.loads(firebase_cred_content)
+
     
 
     cred = credentials.Certificate(firebase_cred)
@@ -29,6 +36,47 @@ def insert_text(review):
         'review': review.text,
         'sentiment': review.sentiment
     })
+
+def inser_movie_review(tmd, id):
+    ref = db.reference('Training_Reviews')
+    ref.child(str(id)).set({
+        'id': tmd.id,
+        'title': tmd.title,
+        'review': tmd.text
+    })
+
+def get_every_review():
+    ref = db.reference('Training_Reviews')
+    data = ref.get()
+    data_key = {}
+    for num, item in enumerate(data, 0):
+        data_key[num] = item
+    return data_key
+
+def insert_analysis(text, sentiment):
+    ref = db.reference('Analyzed_Reviews')
+    num = get_analysis_id()
+    ref.child(str(num)).set({
+        'text': text,
+        "sentiment": sentiment
+    })
+
+def delete_review(id):
+    ref = db.reference(f'Training_Reviews/{id}')
+    ref.delete()
+
+def get_review_data(id):
+    ref = db.reference(f'Training_Reviews/{id}')
+    data = ref.get()
+    return data
+
+def get_analysis_id():
+    ref = db.reference('Analyzed_Reviews')
+    data = ref.get()
+    if data is None:
+        return 1
+    else:
+        return len(data)
 
 def get_last_entry_id():
     ref = db.reference('Reviews')

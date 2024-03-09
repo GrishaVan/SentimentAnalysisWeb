@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ url_for('affectobot') }}">AffectoBot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Train Bot</a>
+                        <a class="nav-link" href="{{ url_for('train') }}">Train Bot</a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +63,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Training</h5>
                         <p class="card-text">Join forces with our friendly robot in enhancing the intelligence of neural networks. As the developer, your inputs are crucial in teaching our AI to be more accurate, more intuitive. With each data point you contribute, our model learns, adapts, and grows stronger. Your expertise could be the key to the next breakthrough in AI learning. Help us refine the future of smart technology.</p>
-                        <a href="#" class="btn btn-dark btn-gradient">Contribute to Improvement</a>
+                        <a href="{{ url_for('train') }}" class="btn btn-dark btn-gradient">Contribute to Improvement</a>
                     </div>
                 </div>
             </div>
