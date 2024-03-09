@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from flask import Flask, request, render_template, redirect, url_for, jsonify
+from flask import Flask, make_response, request, render_template, redirect, url_for, jsonify
 from embedding import *
 from neural import *
 import tensorflow as tf
@@ -20,9 +20,20 @@ CORS(app)
 
 app.config["DEBUG"] = os.environ.get("FLASK_DEBUG")
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('cover.html')
+    # Check for the ToS acceptance cookie
+    accept_tos = request.cookies.get('accept_tos')
+
+    if request.method == 'POST':
+        # When the ToS is accepted, set the cookie
+        response = make_response(redirect(url_for('index')))
+        response.set_cookie('accept_tos', 'yes', max_age=60*60*24)  # Set the cookie for 2 years
+        return response
+
+    # Show ToS modal only if the 'accept_tos' cookie is not set to 'yes'
+    show_tos_modal = accept_tos == 'yes'
+    return render_template('cover.html', show_tos_modal=show_tos_modal)
 
 @app.route('/bot', methods=['GET'])
 def affectobot():

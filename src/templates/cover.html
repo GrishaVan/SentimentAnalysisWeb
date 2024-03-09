@@ -10,6 +10,65 @@
 </head>
 <body>
 
+    {% if show_tos_modal %}
+    <div class="custom-backdrop"></div>
+
+    <div class="modal show" id="tosModal" tabindex="-1" role="dialog" aria-labelledby="tosModalLabel" aria-modal="true" style="display: block;">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tosModalLabel">Terms of Service</h5>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Introduction Section -->
+                        <h6>Introduction</h6>
+                        <p>Welcome to AffectoBot. These Terms of Service ("Terms", "ToS") govern your use of our website located at affectobot.com (the "Service") operated by Grygoriy ("us", "we", or "our").</p>
+                        
+                        <!-- Account Information Section -->
+                        <h6>Accounts</h6>
+                        <p>When you create an account with us, you guarantee that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on our Service.</p>
+                        
+                        <!-- Content Section -->
+                        <h6>Content</h6>
+                        <p>Our Service allows you to post, link, share, and otherwise make available certain information, text, graphics, videos, or other material. You are responsible for the Content that you post on or through the Service, including its legality, reliability, and appropriateness.</p>
+        
+                        <!-- Privacy Policy Section -->
+                        <h6>Privacy Policy</h6>
+                        <p>Your privacy is important to us. Our Privacy Policy explains how we collect, use, and share information about you. By using our Service, you agree to the collection, use, and sharing of your information as set forth in our Privacy Policy.</p>
+        
+                        <!-- Changes to Service Section -->
+                        <h6>Changes to Service</h6>
+                        <p>We reserve the right to withdraw or amend our Service, and any service or material we provide via the Service, in our sole discretion without notice. We will not be liable if for any reason all or any part of the Service is unavailable at any time or for any period.</p>
+        
+                        <!-- Termination Section -->
+                        <h6>Termination</h6>
+                        <p>We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
+        
+                        <!-- Legal Notice About User Information Storage -->
+                        <h6>Legal Notice About User Information Storage</h6>
+                        <p>All personal information and user data are stored and processed in accordance with our Privacy Policy. By using our Service, you acknowledge that we may use third-party services to store and process your data, but we will always ensure that your information is handled with the utmost care and security. Your use of our Service signifies your agreement and consent to these practices.</p>
+        
+                        <!-- Governing Law Section -->
+                        <h6>Governing Law</h6>
+                        <p>These Terms shall be governed and construed in accordance with the laws of GDPR, without regard to its conflict of law provisions.</p>
+        
+                        <!-- Contact Us Section -->
+                        <h6>Contact Us</h6>
+                        <p>If you have any questions about these Terms, please contact us at test@gmail.com.</p>
+        
+                        <p class="text-muted">Last updated: 9th March 2024</p>
+                    </div>
+                    <form method="post">
+                        <div class="modal-footer" class="text-center">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Decline</button>
+                            <button type="submit" class="btn btn-primary">Accept</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('index') }}">AffectoBot</a>

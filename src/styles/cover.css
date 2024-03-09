@@ -55,3 +55,30 @@ body {
 #navbarSupportedContent {
     width: 100%;
 }
+.modal-body {
+    text-align: center;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+.modal-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-backdrop.show {
+    opacity: 0.5; /* Adjust opacity as needed */
+    background-color: #000; /* Use a black background color */
+}
+.custom-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Grey background with opacity */
+    z-index: 1040; /* Ensure this is below the modal z-index, which is usually 1050 */
+}
